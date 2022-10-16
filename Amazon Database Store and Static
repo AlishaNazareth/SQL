@@ -1,0 +1,24 @@
+__Create Amazon store Databse__
+CREATE TABLE amazon (id INTEGER, items text, price integer, aisle integer, stock integer);
+INSERT INTO amazon VALUES (1, "shampoo", 21, 3, 5);
+INSERT INTO amazon VALUES (2, "chocolates", 10, 4, 6);
+INSERT INTO amazon VALUES (3, "lamp", 40, 3, 2);
+INSERT INTO amazon VALUES (4, "table", 35, 4, 5);
+INSERT INTO amazon VAlUES (5, "computer", 100, 8, 2);
+INSERT INTO amazon VALUES (6, "phone", 200, 7, 19);
+INSERT INTO amazon VALUES (7, "bowls", 35, 2, 12);
+INSERT INTO amazon VALUES (8, "bottle", 12, 4, 45);
+INSERT INTO amazon VALUES (9, "oil", 50, 3, 21);
+INSERT INTO amazon VALUES (10, "cerave cream", 21, 5, 45);
+INSERT INTO amazon VALUES (11, "stationery", 45, 4, 80);
+INSERT INTO amazon VALUES (12, "pants", 21, 7, 20);
+INSERT INTO amazon VALUES (13, "backpack", 31, 10, 10);
+INSERT INTO amazon VALUES (14, "glasses", 21, 21, 12);
+INSERT INTO amazon VALUES (15, "hair brush", 10, 2, 30);
+
+__Display database order by prize__
+SELECT * from amazon;
+SELECT * from amazon ORDER BY price;
+
+__Display static where price of the items are above 30__
+SELECT * from amazon where price > 30;
