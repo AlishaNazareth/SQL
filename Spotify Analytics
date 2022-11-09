@@ -1,0 +1,57 @@
+For this project, I downloaded Spotify data from Kaggle.
+# Then I created a table to insert Spotify data into.
+# Finally, I performed analytics on the data using SQL. 
+
+
+CREATE TABLE BIT_DB.Spotifydata (
+id integer PRIMARY KEY,
+artist_name varchar NOT NULL,
+track_name varchar NOT NULL,
+track_id varchar NOT NULL,
+popularity integer NOT NULL,
+danceability decimal(4,3) NOT NULL,
+energy decimal(4,3) NOT NULL,
+key integer NOT NULL,
+loudness decimal(5,3) NOT NULL,
+mode integer NOT NULL,
+speechiness decimal(5,4) NOT NULL,
+acousticness decimal(6,5) NOT NULL,
+instrumentalness text NOT NULL,
+liveness decimal(5,4) NOT NULL,
+valence decimal(4,3) NOT NULL,
+tempo decimal(6,3) NOT NULL,
+duration_ms integer NOT NULL,
+time_signature integer NOT NULL 
+);
+
+Then I inserted the Spotify Data .csv into the table.
+
+#Next, I explored the data using the following SQL. 
+
+#First I determined the avg popularity, danceability, and energy by artist and track. 
+SELECT artist_name, track_name, avg(popularity), avg(danceability), avg(energy)
+FROM BIT_DB.Spotifydata
+GROUP BY artist_name, track_name;
+
+#Then I determined who the Top 10 artists are by popularity
+SELECT artist_name, track_name, popularity
+FROM BIT_DB.Spotifydata
+ORDER BY popularity desc
+LIMIT 10;
+
+#later I determined the maximum popularity by the artist and track name.
+SELECT track_name, artist_name, max(popularity)
+FROM BIT_DB.Spotifydata
+GROUP BY popularity;
+
+#In Addition I got the daceability above o.500 by the track name.
+SELECT track_name, danceability
+FROM BIT_DB.Spotifydata
+WHERE danceability>0.500;
+
+#Lastly I pulled out track name and mode by the artist name "Olivia Rodrigo" by usking LIKE. 
+SELECT track_name, mode FROM BIT_DB.Spotifydata
+WHERE artist_name like 'Olivia Rodrigo%';
+
+
+
